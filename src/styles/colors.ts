@@ -1,0 +1,36 @@
+export const Colors = {
+  PRIMARY_TEXT: "#767676",
+  SECONDARY_TEXT: "#a7a7a7",
+  TERTIARY_TEXT: "#bfbfbf",
+  HIGHLIGHT_TEXT: "#ffffff",
+  DISABLED_TEXT: "#d9d9d9",
+
+  PRIMARY_TITLE: "#2b2b2b",
+
+  PRIMARY_COLOR: "",
+  SECONDARY_COLOR: "",
+  TERTIARY_COLOR: "",
+  HIGHLIGHT_COLOR: "",
+
+  PRIMARY_BACKGROUND: "",
+  SECONDARY_BACKGROUND: "",
+
+  PRIMARY_BORDER: "",
+  SECONDARY_BORDER: "",
+  HIGHLIGHT_BORDER: "",
+
+  PRIMARY_BUTTON: "",
+  SECONDARY_BUTTON: "",
+  WARNING_BUTTON: "",
+  HIGHLIGHT_BUTTON: "",
+
+  DISABLED_BUTTON: "",
+
+  PRIMARY_BUTTON_TEXT: "",
+  SECONDARY_BUTTON_TEXT: "",
+  WARNING_BUTTON_TEXT: "",
+  HIGHLIGHT_BUTTON_TEXT: "",
+  DISABLED_BUTTON_TEXT: "",
+} as const;
+
+export type ColorsKey = keyof typeof Colors;
