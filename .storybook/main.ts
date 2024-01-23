@@ -1,7 +1,7 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const path = require("path");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -11,6 +11,7 @@ const config: StorybookConfig = {
     "@storybook/preset-create-react-app",
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
+    "@storybook/addon-styling",
   ],
   framework: {
     name: "@storybook/react-webpack5",
@@ -21,9 +22,16 @@ const config: StorybookConfig = {
     },
   },
   docs: {
-    autodocs: "tag",
+    autodocs: true,
   },
   webpackFinal: async (config) => {
+    config.module?.rules?.push({
+      test: /\.(ts|tsx)$/,
+      loader: require.resolve("babel-loader"),
+      options: {
+        presets: [require.resolve("@emotion/babel-preset-css-prop")],
+      },
+    });
     config.resolve?.plugins?.push(
       new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, "../tsconfig.json"),

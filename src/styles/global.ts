@@ -93,7 +93,7 @@ const reset = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font-weight: normal;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -140,7 +140,6 @@ const globalStyles = css`
 
   html {
     font-family: ${BASE_FONTS};
-    font-weight: ${StyleFontWeight.REGULAR};
     -webkit-text-size-adjust: none;
     background-color: #fff;
 

@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 
 import { Colors } from "@/styles/colors";
+import { Fonts } from "@/styles/fonts";
 
 type ButtonSize = "large" | "medium" | "small";
 type ButtonType = "primary" | "secondary" | "notice";
@@ -59,25 +60,28 @@ Button.displayName = "Button"; //debugging 용도로 사용
 export const buttonSizeStyles = (size?: ButtonSize) => css`
   ${size === "large" &&
   css`
-    min-width: 140px;
-    padding-left: 40px;
-    padding-right: 40px;
-    min-height: 48px;
-  `}
-  ${size === "medium" &&
-  css`
-    min-width: 120px;
+    min-width: 180px;
     padding-left: 30px;
     padding-right: 30px;
     min-height: 40px;
+    ${Fonts.REGULAR_28};
+  `}
+  ${size === "medium" &&
+  css`
+    min-width: 140px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 36px;
+    ${Fonts.REGULAR_22};
   `}
 
 ${size === "small" &&
   css`
     min-width: 100px;
-    padding-left: 20px;
-    padding-right: 20px;
-    min-height: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 28px;
+    ${Fonts.REGULAR_16};
   `}
 `;
 
@@ -87,8 +91,7 @@ export const buttonTypeStyles = (buttonType?: ButtonType) => {
   return css`
     background-color: ${(Colors as any)[`${type}_BUTTON_BACKGROUND`]};
     border: 1px solid ${(Colors as any)[`${type}_BUTTON_BORDER`]};
-    color: ${(Colors as any)[`${type}_TEXT`]};
-
+    color: ${(Colors as any)[`${type}_BUTTON_TEXT`]};
     &:not(:disabled):hover,
     &:not(:disabled):focus {
       background-image: linear-gradient(
@@ -98,53 +101,50 @@ export const buttonTypeStyles = (buttonType?: ButtonType) => {
       );
     }
   `;
+  // return css`
+  //   ${buttonType === "primary" &&
   //   css`
-  //     ${buttonType === "primary" &&
-  //     css`
-  //       background-color: ${Colors.PRIMARY_BUTTON_BACKGROUND};
-  //       border: 1px solid ${Colors.PRIMARY_BUTTON_BORDER};
-  //       color: ${Colors.PRIMARY_BUTTON_TEXT};
-
-  //       &:not(:disabled):hover,
-  //       &:not(:disabled):focus {
-  //         background-image: linear-gradient(
-  //           to bottom,
-  //           ${Colors.PRIMARY_BUTTON_BACKGROUND},
-  //           rgba(0, 0, 0, 0.4)
-  //         );
-  //       }
-  //     `}
-  //     ${buttonType === "secondary" &&
-  //     css`
-  //       background-color: ${Colors.SECONDARY_BUTTON_BACKGROUND};
-  //       border: 1px solid ${Colors.SECONDARY_BUTTON_BORDER};
-  //       color: ${Colors.SECONDARY_BUTTON_TEXT};
-
-  //       &:not(:disabled):hover,
-  //       &:not(:disabled):focus {
-  //         background-image: linear-gradient(
-  //           to bottom,
-  //           ${Colors.SECONDARY_BACKGROUND},
-  //           rgba(0, 0, 0, 0.4)
-  //         );
-  //       }
-  //     `}
+  //     background-color: ${Colors.PRIMARY_BUTTON_BACKGROUND};
+  //     border: 1px solid ${Colors.PRIMARY_BUTTON_BORDER};
+  //     color: ${Colors.PRIMARY_BUTTON_TEXT};
+  //     &:not(:disabled):hover,
+  //     &:not(:disabled):focus {
+  //       background-image: linear-gradient(
+  //         to bottom,
+  //         ${Colors.PRIMARY_BUTTON_BACKGROUND},
+  //         rgba(0, 0, 0, 0.4)
+  //       );
+  //     }
+  //   `}
+  //   ${buttonType === "secondary" &&
+  //   css`
+  //     background-color: ${Colors.SECONDARY_BUTTON_BACKGROUND};
+  //     border: 1px solid ${Colors.SECONDARY_BUTTON_BORDER};
+  //     color: ${Colors.SECONDARY_BUTTON_TEXT};
+  //     &:not(:disabled):hover,
+  //     &:not(:disabled):focus {
+  //       background-image: linear-gradient(
+  //         to bottom,
+  //         ${Colors.SECONDARY_BACKGROUND},
+  //         rgba(0, 0, 0, 0.4)
+  //       );
+  //     }
+  //   `}
   //     ${buttonType === "notice" &&
-  //     css`
-  //       background-color: ${Colors.NOTICE_BUTTON_BACKGROUND};
-  //       border: 1px solid ${Colors.NOTICE_BUTTON_BORDER};
-  //       color: ${Colors.NOTICE_BUTTON_TEXT};
-
-  //       &:not(:disabled):hover,
-  //       &:not(:disabled):focus {
-  //         background-image: linear-gradient(
-  //           to bottom,
-  //           ${Colors.NOTICE_BUTTON_BACKGROUND},
-  //           rgba(0, 0, 0, 0.4)
-  //         );
-  //       }
-  //     `}
-  //   `;
+  //   css`
+  //     background-color: ${Colors.NOTICE_BUTTON_BACKGROUND};
+  //     border: 1px solid ${Colors.NOTICE_BUTTON_BORDER};
+  //     color: ${Colors.NOTICE_BUTTON_TEXT};
+  //     &:not(:disabled):hover,
+  //     &:not(:disabled):focus {
+  //       background-image: linear-gradient(
+  //         to bottom,
+  //         ${Colors.NOTICE_BUTTON_BACKGROUND},
+  //         rgba(0, 0, 0, 0.4)
+  //       );
+  //     }
+  //   `}
+  // `;
 };
 
 export const styles = {
@@ -159,6 +159,7 @@ export const styles = {
     min-height: 28px;
     white-space: nowrap;
     line-height: normal;
+    ${Fonts.REGULAR_16};
 
     //버튼 사이즈
     ${buttonSizeStyles(size)}
@@ -167,10 +168,6 @@ export const styles = {
     background-color: transparent;
     color: ${Colors.PRIMARY_TEXT};
     border: 1px solid ${Colors.PRIMARY_BORDER};
-
-    background-color: ${Colors.PRIMARY_BUTTON_BACKGROUND};
-    border: 1px solid ${Colors.PRIMARY_BUTTON_BORDER};
-    color: ${Colors.PRIMARY_BUTTON_TEXT};
 
     &:not(:disabled):hover,
     &:not(:disabled):focus {

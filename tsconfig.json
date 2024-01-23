@@ -15,6 +15,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "types": ["react", "@emotion/react/types/css-prop"],
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react"
   },

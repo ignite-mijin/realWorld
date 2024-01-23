@@ -7,6 +7,10 @@ const meta = {
   title: "Atomic/Button",
   component: Button,
   parameters: {
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    viewMode: "docs",
     layout: "centered",
     componentSubtitle: "버튼 컴포넌트",
     docs: {
@@ -63,6 +67,10 @@ const meta = {
       control: {
         type: "boolean",
       },
+    },
+    handleClick: {
+      description: "버튼 클릭시 실행할 함수에 대한 지정",
+      action: "clicked",
     },
   },
   args: {
