@@ -10,6 +10,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
+  //Global 컴포넌트를 strictMode에서 제외한 이유[궁금증]
   <>
     <Global styles={globalStyles} />
     <React.StrictMode>

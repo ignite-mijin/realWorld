@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { Colors } from "./colors";
 import { BASE_FONTS, StyleFontWeight, Fonts } from "./fonts";
 
+//reset은 CPO-BO보니 에릭마이어 reset css쓰시는거같아서 그대로 가져왔습니다.
 const reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
@@ -144,7 +145,7 @@ const globalStyles = css`
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    ${Fonts.ROOT}
+    ${Fonts.ROOT} //root font설정 10px
     letter-spacing: -0.02em;
   }
 

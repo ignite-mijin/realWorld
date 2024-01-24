@@ -1,11 +1,13 @@
 import { css } from "@emotion/react";
 
+//폰트 굵기 설정 다른곳에서도 사용할 수 있다.
 export enum StyleFontWeight {
   REGULAR = 400,
   MEDIUM = 500,
   BOLD = 700,
 }
 
+//기본 폰트 설정 - 로컬에서 파일 관리하는 경우
 export const BASE_FONTS = css`
   @font-face {
     font-family: 'Noto Sans KR';
@@ -32,7 +34,8 @@ export const BASE_FONTS = css`
 `;
 
 export const makeFonts = (
-  //사용되는 폰트를 명시적으로 선언
+  //다른데서도 사용이 가능하다. exprot를 사용하여 내보내준다.
+  //사용되는 폰트를 명시적으로 선언 - 사이즈는 REM 단위로 사용
   fontSize: number,
   fontWeight: number | string
 ) => {
@@ -64,6 +67,6 @@ export const Fonts = {
     font-weight: ${StyleFontWeight.REGULAR};
     line-height: 1.4;
   `)(),
-} as const;
+} as const; //as const를 사용하여 리터럴 타입으로 실제값을 정의
 
 export type FontsKey = keyof typeof Fonts;
