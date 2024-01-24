@@ -22,6 +22,7 @@ export interface ButtonProps
   // StyleProps를 상속받아서 확장하는 이유는, ButtonProps에는 StyleProps에 없는 속성들이 있기 때문
   type?: "button" | "submit" | "reset";
   loading?: boolean;
+  children?: React.ReactNode;
   handleClick?: () => void;
 }
 

@@ -25,13 +25,6 @@ const config: StorybookConfig = {
     autodocs: true,
   },
   webpackFinal: async (config) => {
-    config.module?.rules?.push({
-      test: /\.(ts|tsx)$/,
-      loader: require.resolve("babel-loader"),
-      options: {
-        presets: [require.resolve("@emotion/babel-preset-css-prop")],
-      },
-    });
     config.resolve?.plugins?.push(
       new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, "../tsconfig.json"),

@@ -6,7 +6,7 @@ export const Colors = {
   NOTICE_TEXT: "#b85c5c",
 
   PRIMARY_TITLE: "#373a3c",
-  SECONDARY_TITLE: "#5cb85c",
+  SECONDARY_TITLE: "#767676",
 
   PRIMARY_COLOR: "#767676",
   SECONDARY_COLOR: "#373a3c",

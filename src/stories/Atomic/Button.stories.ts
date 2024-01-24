@@ -85,6 +85,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+
 export const Default: Story = {
   args: {
     children: "정의된 공통스타일 외의 기본 버튼",

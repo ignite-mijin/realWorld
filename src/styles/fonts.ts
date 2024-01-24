@@ -45,6 +45,7 @@ export const makeFonts = (
 
 export const Fonts = {
   BOLD_40: makeFonts(40, StyleFontWeight.BOLD),
+  BOLD_32: makeFonts(32, StyleFontWeight.BOLD),
   BOLD_28: makeFonts(28, StyleFontWeight.BOLD),
   BOLD_22: makeFonts(22, StyleFontWeight.BOLD),
   BOLD_18: makeFonts(18, StyleFontWeight.BOLD),
