@@ -11,6 +11,7 @@ type StyleProps = {
   color?: string;
 };
 
+//초반에 string | React.ReactNode로 했는데,  React.ReactNode에는 string이 포함되어 있다 하여 하나로 선언함
 interface TitleProps extends StyleProps {
   titleText: React.ReactNode;
   description?: React.ReactNode;
@@ -32,6 +33,7 @@ export default function Title({
   );
 }
 
+//emotion css 의 중복호출 부분을 줄이도록 생각
 const TitleType = (type: titleType) => css`
   ${type === "pageTitle" &&
   css`

@@ -18,7 +18,7 @@ const meta = {
       },
     },
   },
-  tags: ["autodocs"],
+
   argTypes: {
     type: {
       description: "title용도에 따른 지정",
