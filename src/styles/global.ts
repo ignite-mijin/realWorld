@@ -93,7 +93,7 @@ const reset = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font-weight: normal;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -111,7 +111,7 @@ const reset = css`
     display: block;
   }
   body {
-    line-height: 1;
+    line-height: normal;
   }
   ol,
   ul {
@@ -139,11 +139,11 @@ const globalStyles = css`
   ${BASE_FONTS};
 
   html {
-    font-family: ${BASE_FONTS};
-    font-weight: ${StyleFontWeight.REGULAR};
+    font-family: "Noto Sans KR", sans-serif;
     -webkit-text-size-adjust: none;
     background-color: #fff;
-
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     ${Fonts.ROOT}
     letter-spacing: -0.02em;
   }
@@ -176,7 +176,6 @@ const globalStyles = css`
   h5,
   h6,
   table {
-    font: inherit;
     letter-spacing: inherit;
     color: inherit;
   }

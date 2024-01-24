@@ -33,38 +33,37 @@ export const BASE_FONTS = css`
 
 export const makeFonts = (
   //사용되는 폰트를 명시적으로 선언
-  fontSize: string,
-  fontWeight: number | string,
-  lineHeight: number | string
+  fontSize: number,
+  fontWeight: number | string
 ) => {
+  const remSize = `${fontSize / 10}rem`;
   return css`
-    font-size: () => (${fontSize} / 10) + "rem";
+    font-size: ${remSize};
     font-weight: ${fontWeight};
-    line-height: ${lineHeight};
   `;
 };
 
 export const Fonts = {
-  BOLD_40: makeFonts("40px", StyleFontWeight.BOLD, "1.4"),
-  BOLD_28: makeFonts("28px", StyleFontWeight.BOLD, "1.6"),
-  BOLD_22: makeFonts("22px", StyleFontWeight.BOLD, "1.4"),
-  BOLD_18: makeFonts("18px", StyleFontWeight.BOLD, "1.4"),
-  BOLD_16: makeFonts("16px", StyleFontWeight.BOLD, "1.4"),
-  BOLD_14: makeFonts("14px", StyleFontWeight.BOLD, "1.4"),
-  BOLD_13: makeFonts("13px", StyleFontWeight.BOLD, "1.4"),
+  BOLD_40: makeFonts(40, StyleFontWeight.BOLD),
+  BOLD_32: makeFonts(32, StyleFontWeight.BOLD),
+  BOLD_28: makeFonts(28, StyleFontWeight.BOLD),
+  BOLD_22: makeFonts(22, StyleFontWeight.BOLD),
+  BOLD_18: makeFonts(18, StyleFontWeight.BOLD),
+  BOLD_16: makeFonts(16, StyleFontWeight.BOLD),
+  BOLD_14: makeFonts(14, StyleFontWeight.BOLD),
 
-  REGULAR_20: makeFonts("20px", StyleFontWeight.REGULAR, "1.4"),
-  REGULAR_18: makeFonts("18px", StyleFontWeight.REGULAR, "1.4"),
-  REGULAR_16: makeFonts("16px", StyleFontWeight.REGULAR, "1.4"),
-  REGULAR_14: makeFonts("14px", StyleFontWeight.REGULAR, "1.4"),
+  REGULAR_40: makeFonts(40, StyleFontWeight.REGULAR),
+  REGULAR_28: makeFonts(28, StyleFontWeight.REGULAR),
+  REGULAR_22: makeFonts(22, StyleFontWeight.REGULAR),
+  REGULAR_18: makeFonts(18, StyleFontWeight.REGULAR),
+  REGULAR_16: makeFonts(16, StyleFontWeight.REGULAR),
+  REGULAR_14: makeFonts(14, StyleFontWeight.REGULAR),
 
-  ROOT: (() => {
-    return css`
-      font-size: () => 10px;
-      font-weight: ${StyleFontWeight.REGULAR};
-      line-height: 1.4;
-    `;
-  })(),
+  ROOT: (() => css`
+    font-size: 10px;
+    font-weight: ${StyleFontWeight.REGULAR};
+    line-height: 1.4;
+  `)(),
 } as const;
 
 export type FontsKey = keyof typeof Fonts;

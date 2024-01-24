@@ -1,27 +1,60 @@
 // Note: Title Component
-import "@/stories/Foundation/Title/title.css";
+import { css } from "@emotion/react";
 import { PropsWithChildren } from "react";
+import { Fonts } from "@/styles/fonts";
+import { Colors } from "@/styles/colors";
 
-interface TitleProps {
+type titleType = "pageTitle" | "sectionTitle";
+
+type StyleProps = {
+  type: titleType;
   color?: string;
-  type?: "pageTitle" | "sectionTitle";
-  children: string | React.ReactNode;
+};
+
+interface TitleProps extends StyleProps {
+  titleText: React.ReactNode;
+  description?: React.ReactNode;
 }
 
-export const Title = ({
+export default function Title({
   color,
-  type = "sectionTitle",
-  children,
+  type = "pageTitle",
+  titleText,
+  description,
   ...props
-}: PropsWithChildren<TitleProps>) => {
-  const classNameList = ["title", `title-mode-${type}`].join(" ");
-  return type === "pageTitle" ? (
-    <h1 className={classNameList} style={{ color }} {...props}>
-      {children}
-    </h1>
-  ) : (
-    <h2 className={classNameList} {...props}>
-      {children}
-    </h2>
+}: PropsWithChildren<TitleProps>) {
+  const styleProps = { type, color };
+  return (
+    <div className="title-section" css={styles.title(styleProps)} {...props}>
+      <h1>{titleText}</h1>
+      <p>{description}</p>
+    </div>
   );
+}
+
+const TitleType = (type: titleType) => css`
+  ${type === "pageTitle" &&
+  css`
+    ${Fonts.BOLD_40}
+    color:${Colors.PRIMARY_TITLE}
+  `}
+
+  ${type === "sectionTitle" &&
+  css`
+    ${Fonts.BOLD_32}
+    color:${Colors.SECONDARY_TITLE}
+  `}
+`;
+
+const styles = {
+  title: ({ type, color }: StyleProps) => css`
+    h1 {
+      ${TitleType(type)};
+      color: ${color};
+    }
+    p {
+      ${Fonts.REGULAR_16}
+      color:${Colors.HIGHLIGHT_TEXT}
+    }
+  `,
 };
