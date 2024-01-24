@@ -45,7 +45,7 @@ export default function Button({
   return (
     <button
       css={styles.button(stylesProps)}
-      type={type as any}
+      type={type}
       disabled={loading || disabled}
       {...rest}
       onClick={handleClick}
