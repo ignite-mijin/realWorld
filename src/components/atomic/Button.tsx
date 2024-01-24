@@ -5,6 +5,7 @@ import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import { Colors } from "@/styles/colors";
 import { Fonts } from "@/styles/fonts";
 
+//하단의 스타일 선언에서 타입 변수로 사용하기 위해 선언했으나, 사실상 사용자 지정타입의 경우는 따로 선언하는게 명시적이려나 싶음
 type ButtonSize = "large" | "medium" | "small";
 type ButtonType = "primary" | "secondary" | "notice";
 
@@ -44,7 +45,7 @@ export default function Button({
   return (
     <button
       css={styles.button(stylesProps)}
-      type={type}
+      type={type as any}
       disabled={loading || disabled}
       {...rest}
       onClick={handleClick}
@@ -102,6 +103,8 @@ export const buttonTypeStyles = (buttonType?: ButtonType) => {
       );
     }
   `;
+
+  // 하기 주석된 스타일을 상단으로 리팩토링
   // return css`
   //   ${buttonType === "primary" &&
   //   css`
