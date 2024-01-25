@@ -163,6 +163,8 @@ export const styles = {
     min-height: 28px;
     white-space: nowrap;
     line-height: normal;
+    padding-left: 10px;
+    padding-right: 10px;
     ${Fonts.REGULAR_16};
 
     //버튼 사이즈

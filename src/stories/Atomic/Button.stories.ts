@@ -101,7 +101,7 @@ export const Secondary: Story = {
 };
 export const Notice: Story = {
   args: {
-    buttonType: "secondary",
+    buttonType: "notice",
     size: "medium",
   },
 };
