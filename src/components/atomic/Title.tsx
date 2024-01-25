@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 import { Fonts } from "@/styles/fonts";
 import { Colors } from "@/styles/colors";
 
-type titleType = "pageTitle" | "sectionTitle";
+type titleType = "page" | "section";
 
 type StyleProps = {
   type: titleType;
@@ -13,21 +13,21 @@ type StyleProps = {
 
 //초반에 string | React.ReactNode로 했는데,  React.ReactNode에는 string이 포함되어 있다 하여 하나로 선언함
 interface TitleProps extends StyleProps {
-  titleText: React.ReactNode;
+  text: React.ReactNode;
   description?: React.ReactNode;
 }
 
 export default function Title({
   color,
-  type = "pageTitle",
-  titleText,
+  type = "page",
+  text,
   description,
   ...props
 }: PropsWithChildren<TitleProps>) {
   const styleProps = { type, color };
   return (
     <div className="title-section" css={styles.title(styleProps)} {...props}>
-      <h1>{titleText}</h1>
+      <h1>{text}</h1>
       <p>{description}</p>
     </div>
   );
@@ -35,13 +35,13 @@ export default function Title({
 
 //emotion css 의 중복호출 부분을 줄이도록 생각
 const TitleType = (type: titleType) => css`
-  ${type === "pageTitle" &&
+  ${type === "page" &&
   css`
     ${Fonts.BOLD_40}
     color:${Colors.PRIMARY_TITLE}
   `}
 
-  ${type === "sectionTitle" &&
+  ${type === "section" &&
   css`
     ${Fonts.BOLD_32}
     color:${Colors.SECONDARY_TITLE}
