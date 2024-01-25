@@ -30,7 +30,10 @@ const config: StorybookConfig = {
       test: /\.(ts|tsx)$/,
       loader: require.resolve("babel-loader"),
       options: {
-        presets: [require.resolve("@emotion/babel-preset-css-prop")],
+        presets: [
+          ["react-app", { flow: false, typescript: true }], //타입 오류를 해결하기 위해 typescript: true 추가
+          require.resolve("@emotion/babel-preset-css-prop"),
+        ],
       },
     });
     config.resolve?.plugins?.push(
