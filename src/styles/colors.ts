@@ -1,4 +1,5 @@
 export const Colors = {
+  //용도별로 컬러 정의
   PRIMARY_TEXT: "#767676",
   SECONDARY_TEXT: "#373a3c",
   HIGHLIGHT_TEXT: "#5cb85c",
