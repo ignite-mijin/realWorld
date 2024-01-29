@@ -10,16 +10,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Title type="pageTitle" titleText="TitleTest" />
-        <Title type="sectionTitle" titleText="TitleTest" />
+        <Title type="page" text="TitleTest" />
+        <Title type="section" text="TitleTest" />
         <Title
-          type="pageTitle"
-          titleText="TitleTest"
+          type="page"
+          text="TitleTest"
           description="기본타이틀 색상도 지정되어있음"
         />
         <Title
-          type="sectionTitle"
-          titleText="TitleTest"
+          type="section"
+          text="TitleTest"
           description="보통은 기본 타이틀 색이 정해져있으나 변경도 가능"
           color="#fff"
         />
