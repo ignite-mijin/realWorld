@@ -64,7 +64,7 @@ const meta = {
         type: "boolean",
       },
     },
-    handleClick: {
+    onClick: {
       description: "버튼 클릭시 실행할 함수에 대한 지정",
       action: "clicked",
     },

@@ -32,7 +32,7 @@ export default function Title({
   );
 }
 
-const TitleType = (type: titleType) => css`
+const makeTitleStyle = (type: titleType) => css`
   ${type === "pageTitle" &&
   css`
     ${Fonts.BOLD_40}
@@ -49,7 +49,7 @@ const TitleType = (type: titleType) => css`
 const styles = {
   title: ({ type, color }: StyleProps) => css`
     h1 {
-      ${TitleType(type)};
+      ${makeTitleStyle(type)};
       color: ${color};
     }
     p {
