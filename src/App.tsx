@@ -4,6 +4,7 @@ import "./App.css";
 import { css } from "@emotion/react";
 import Title from "@/components/atomic/Title";
 import Button from "@/components/atomic/Button";
+import Input from "@/components/atomic/Input";
 
 function App() {
   return (

@@ -22,6 +22,7 @@ export const Colors = {
   PRIMARY_BORDER: "#cccccc",
   SECONDARY_BORDER: "#dadada",
   HIGHLIGHT_BORDER: "#5cb85c",
+  NOTICE_BORDER: "#b85c5c",
 
   DISABLED_BUTTON_BACKGROUND: "#d9d9d9",
   DISABLED_BUTTON_BORDER: "#d9d9d9",
