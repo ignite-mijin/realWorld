@@ -18,16 +18,16 @@ const meta = {
       },
     },
   },
-  tags: ["autodocs"],
+
   argTypes: {
     type: {
       description: "title용도에 따른 지정",
       control: {
         type: "select",
-        options: ["pageTitle", "sectionTitle"],
+        options: ["page", "section"],
       },
     },
-    titleText: {
+    text: {
       description: "title이름",
       control: {
         type: "text",
@@ -51,8 +51,8 @@ const meta = {
     },
   },
   args: {
-    type: "pageTitle",
-    titleText: "제목",
+    type: "page",
+    text: "제목",
   },
 } satisfies Meta<typeof Title>;
 
@@ -61,22 +61,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    titleText: "단독타이틀",
+    text: "단독타이틀",
   },
 };
 
 export const PageTitle: Story = {
   args: {
-    type: "pageTitle",
-    titleText: "Jungle",
+    type: "page",
+    text: "Jungle",
     description: "welcome to the jungle",
   },
 };
 
 export const SectionTitle: Story = {
   args: {
-    type: "sectionTitle",
-    titleText: "ArticleTitle",
+    type: "section",
+    text: "ArticleTitle",
     description: "introduce article",
   },
 };
