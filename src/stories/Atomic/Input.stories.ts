@@ -62,17 +62,6 @@ const meta = {
         },
       },
     },
-    defaultValue: {
-      description: "초기 기본값에 대한 지정",
-      control: {
-        type: "text",
-      },
-      table: {
-        type: {
-          summary: "string",
-        },
-      },
-    },
     ref: {
       description: "ref에 대한 지정",
       control: {
@@ -111,7 +100,7 @@ const meta = {
     placeholder: "placeholder",
     size: "medium",
     disabled: false,
-    defaultValue: "",
+    value: "",
   },
 } satisfies Meta<typeof Input>;
 
@@ -155,7 +144,7 @@ export const Disabled: Story = {
 export const Large: Story = {
   args: {
     size: "large",
-    defaultValue: "error값을 넣어보았다.",
+    value: "error값을 넣어보았다.",
     isValid: false,
     errorMessage: "에러메시지",
   },

@@ -39,7 +39,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       placeholder,
       fullWidth,
       value,
-      defaultValue,
       setValue = () => undefined,
       onChange = () => undefined,
       onInput,
@@ -71,7 +70,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           id={id}
           placeholder={placeholder}
           value={value}
-          defaultValue={defaultValue}
           onChange={handleChange}
           onInput={(e) => {
             //제어할 내용 , maxLength를 넘어가는 경우, maxLength만큼만 입력되도록 처리

@@ -31,7 +31,6 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       value,
       width = "100%",
       height = "100px",
-      defaultValue,
       maxLength = 1000,
       setValue = () => undefined,
       onChange = () => undefined,
@@ -68,9 +67,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           }}
           ref={ref as React.RefObject<HTMLTextAreaElement>} //RefObject자체는 제네릭파라미터이므로 타입단언을 해줘야한다.
           {...props}
-        >
-          {defaultValue}
-        </textarea>
+        ></textarea>
       </div>
     );
   }
@@ -93,7 +90,7 @@ const styles = {
       padding-top: 10px;
       padding-bottom: 10px;
       ${Fonts.REGULAR_18}
-      color: ${Colors.PRIMARY_TEXT};
+      color
       &:focus,
       &:hover {
         border-color: ${Colors.HIGHLIGHT_BORDER};

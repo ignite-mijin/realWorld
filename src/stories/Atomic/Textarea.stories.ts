@@ -66,17 +66,6 @@ const meta = {
         },
       },
     },
-    defaultValue: {
-      description: "초기 기본값에 대한 지정",
-      control: {
-        type: "text",
-      },
-      table: {
-        type: {
-          summary: "string",
-        },
-      },
-    },
     ref: {
       description: "ref에 대한 지정",
       control: {
@@ -114,7 +103,7 @@ const meta = {
     width: "100%",
     height: "100px",
     disabled: false,
-    defaultValue: "",
+    value: "",
   },
 } satisfies Meta<typeof Textarea>;
 
@@ -124,14 +113,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     placeholder: "TextArea",
-    defaultValue: "default값을 넣어보았다.",
+    value: "default값을 넣어보았다.",
   },
 };
 
 export const Text: Story = {
   args: {
     placeholder: "TextArea",
-    defaultValue: "default값을 넣어보았다.",
+    value: "default값을 넣어보았다.",
     maxLength: 100,
   },
 };
