@@ -26,72 +26,79 @@ interface InputProps
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; //input의 onChange 이벤트를 전달받아서 사용
 }
 
+//displayName 사용을 위해 컴포넌트 이름을 화살표함수 표현식 변수로 선언
 //forwardRef를 사용하면, 함수형에서 ref를 가질수 없는부분을 보완할 수 있음,  부모 컴포넌트에서 자식요소의 DOM접근가능 (autoFocus기능이나, positon등 참조 시)
-export default forwardRef<HTMLInputElement, InputProps>(function Input(
-  {
-    id,
-    type = "text",
-    size = "medium",
-    isValid,
-    errorMessage,
-    placeholder,
-    fullWidth,
-    value,
-    defaultValue,
-    setValue = () => undefined,
-    onChange = () => undefined,
-    onInput,
-    maxLength = 100,
-    ...rest
-  },
-  ref
-) {
-  //error가 발생했을때, 에러메세지를 보여주기 위한 로직
-  const showError: boolean = useMemo(
-    () => isValid === false && !!errorMessage,
-    [isValid, errorMessage]
-  );
-
-  //input Change 이벤트 발생 시 내부 처리 후 props로 전달받은 onChange를 실행
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>): void => {
-      const value = e?.target?.value;
-      setValue(value);
-      onChange(e);
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      id,
+      type = "text",
+      size = "medium",
+      isValid = true,
+      errorMessage,
+      placeholder,
+      fullWidth,
+      value,
+      defaultValue,
+      setValue = () => undefined,
+      onChange = () => undefined,
+      onInput,
+      maxLength = 100,
+      ...props
     },
-    [onChange, setValue]
-  );
+    ref
+  ) => {
+    //error가 발생했을때, 에러메세지를 보여주기 위한 로직
+    const showError: boolean = useMemo(
+      () => isValid === false && !!errorMessage,
+      [isValid, errorMessage]
+    );
 
-  return (
-    <div className="input-item" css={styles.input(size, fullWidth, isValid)}>
-      <input
-        type={type}
-        id={id}
-        placeholder={placeholder}
-        value={value}
-        defaultValue={defaultValue}
-        onChange={handleChange}
-        onInput={(e) => {
-          //제어할 내용 , maxLength를 넘어가는 경우, maxLength만큼만 입력되도록 처리
-          const target = e.target as HTMLInputElement; //타입단언의 이유는 이벤트 타입이 HTMLInputElement가 아니기 때문에 EventTarget 타입이라서.
-          const { value } = target as HTMLInputElement;
-          if (!target) {
-            return;
-          }
+    //input Change 이벤트 발생 시 내부 처리 후 props로 전달받은 onChange를 실행
+    const handleChange = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const value = e?.target?.value;
+        setValue(value);
+        onChange(e);
+      },
+      [onChange, setValue]
+    );
 
-          if (value.length > maxLength) {
-            target.value = value.slice(0, maxLength);
-          }
+    return (
+      <div className="input-item" css={styles.input(size, fullWidth, isValid)}>
+        <input
+          type={type}
+          id={id}
+          placeholder={placeholder}
+          value={value}
+          defaultValue={defaultValue}
+          onChange={handleChange}
+          onInput={(e) => {
+            //제어할 내용 , maxLength를 넘어가는 경우, maxLength만큼만 입력되도록 처리
+            const target = e.target as HTMLInputElement; //타입단언의 이유는 이벤트 타입이 HTMLInputElement가 아니기 때문에 EventTarget 타입이라서.
+            const { value } = target as HTMLInputElement;
+            if (!target) {
+              return;
+            }
 
-          onInput?.(e);
-        }}
-        ref={ref}
-        {...rest}
-      />
-      {showError && <span className="error-message">{errorMessage}</span>}
-    </div>
-  );
-});
+            if (value.length > maxLength) {
+              target.value = value.slice(0, maxLength);
+            }
+
+            onInput?.(e);
+          }}
+          ref={ref as React.RefObject<HTMLInputElement>}
+          {...props}
+        />
+        {showError && <span className="error-message">{errorMessage}</span>}
+      </div>
+    );
+  }
+);
+
+Input.displayName = "Input";
+
+export default Input;
 
 const styles = {
   input: (size: Size, fullWidth?: boolean, isValid?: boolean) => css`
@@ -102,6 +109,7 @@ const styles = {
       border: 1px solid ${Colors.PRIMARY_BORDER};
       background-color: ${Colors.PRIMARY_BACKGROUND};
       border-radius: 4px;
+      color: ${Colors.PRIMARY_TEXT};
       &:focus,
       &:hover {
         border-color: ${Colors.HIGHLIGHT_BORDER};

@@ -96,6 +96,7 @@ const reset = css`
     font-size: 100%;
     font-weight: normal;
     vertical-align: baseline;
+    box-sizing: border-box;
   }
   /* HTML5 display-role reset for older browsers */
   article,
@@ -202,6 +203,7 @@ const globalStyles = css`
     background-color: transparent;
     border: 0;
     color: ${Colors.SECONDARY_TEXT};
+    box-sizing: border-box;
   }
 
   strong,
