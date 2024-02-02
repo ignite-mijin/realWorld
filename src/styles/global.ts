@@ -224,7 +224,8 @@ const globalStyles = css`
 
   a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
+    cursor: pointer;
   }
 `;
 
