@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Global } from "@emotion/react";
 import globalStyles from "./styles/global";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,9 +13,11 @@ const root = ReactDOM.createRoot(
 root.render(
   //Global 컴포넌트를 strictMode에서 제외한 이유[궁금증]
   <>
-    <Global styles={globalStyles} />
     <React.StrictMode>
-      <App />
+      <Global styles={globalStyles} />
+      <Router>
+        <App />
+      </Router>
     </React.StrictMode>
   </>
 );
