@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import type { RouteItem } from "@/router/routes";
-import { useEffect } from "react";
 
 interface RouteIndexProps {
   routes: RouteItem[];
@@ -16,7 +15,7 @@ function RouterIndex({ routes }: RouteIndexProps) {
   return (
     <Routes>
       {routes.map(({ component: Component, ...props }, i) => (
-        <Route key={i} {...props} element={<Component />} />
+        <Route key={`${Date.now()}`} {...props} element={<Component />} />
       ))}
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>
