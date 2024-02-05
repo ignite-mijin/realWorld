@@ -13,14 +13,10 @@ interface RouteIndexProps {
 // }
 
 function RouterIndex({ routes }: RouteIndexProps) {
-  useEffect(() => {
-    console.log(routes);
-  });
-
   return (
     <Routes>
       {routes.map(({ component: Component, ...props }, i) => (
-        <Route key={i} {...props} element={<Component />}></Route>
+        <Route key={i} {...props} element={<Component />} />
       ))}
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>

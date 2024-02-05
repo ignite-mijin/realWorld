@@ -14,38 +14,38 @@ export type RouteItem = RouteProps & {
   page?: string;
 };
 
-export const RouteHome: RouteItem = {
+const RouteHome: RouteItem = {
   path: "/home",
   component: Home,
   page: "HOME",
 };
-export const RouteSignUp: RouteItem = {
+const RouteSignUp: RouteItem = {
   path: "/join",
   component: SignUp,
   page: "회원가입",
 };
-export const RouteSignIn: RouteItem = {
+const RouteSignIn: RouteItem = {
   path: "/login",
   component: SignIn,
   page: "로그인",
 };
 
-export const RouteMyPage: RouteItem = {
+const RouteMyPage: RouteItem = {
   path: "/mypage",
   component: MyPage,
   page: "마이페이지",
 };
-export const RoutePostList: RouteItem = {
+const RoutePostList: RouteItem = {
   path: "/post",
   component: PostList,
   page: "블로그",
 };
-export const RoutePostDetail: RouteItem = {
+const RoutePostDetail: RouteItem = {
   path: "/post/:id",
   component: PostDetail,
   page: "블로그 > 상세",
 };
-export const RoutePostWrite: RouteItem = {
+const RoutePostWrite: RouteItem = {
   path: "/post/write",
   component: PostWrite,
   page: "블로그 > 작성",

@@ -10,7 +10,7 @@ export default function Footer() {
       <a
         href="https://github.com/gothinkster/realworld"
         target="_blank"
-        rel="noreferrer"
+        rel="noreferrer noopener"
       >
         <FaGithub className="icon" />
         Fork on Github
